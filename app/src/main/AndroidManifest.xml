@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Stat_stars"
         tools:targetApi="31">
         <activity
+            android:name=".filterSettings"
+            android:exported="false" />
+        <activity
+            android:name=".statView"
+            android:exported="false" />
+        <activity
+            android:name=".search"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
