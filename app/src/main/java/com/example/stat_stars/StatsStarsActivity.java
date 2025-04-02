@@ -1,5 +1,6 @@
 package com.example.stat_stars;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,8 @@ public class StatsStarsActivity extends AppCompatActivity {
         etPlayerTag = findViewById(R.id.etPlayerTag); // MAKE SURE THIS CAPS AT 9 OR WHATEVER MAX TAG LENGTH IS
         btnGo = findViewById(R.id.btnGo);
         btnBrawlers = findViewById(R.id.btnBrawlers);
+
+
 
 
 
