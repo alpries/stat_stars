@@ -26,3 +26,5 @@ public class MainActivity extends AppCompatActivity {
 
 //should be a simple page, though we can decorate it. i don't remember if it was mobile or web tech
 //when he was talking about copyright so ig just be careful with that?
+
+// 9:56pm
