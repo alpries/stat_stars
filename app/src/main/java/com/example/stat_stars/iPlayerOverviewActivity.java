@@ -1,5 +1,6 @@
 package com.example.stat_stars;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,6 +55,18 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
         tvWinsDuo = findViewById(R.id.tvWinsDuo);
         tvClubName = findViewById(R.id.tvClubName);
         btnToBrawlers = findViewById(R.id.btnToBrawlers);
+        btnBack = findViewById(R.id.btnBack);
+
+        btnToBrawlers.setOnClickListener(v->{
+            Intent intent = new Intent(iPlayerOverviewActivity.this, iBrawlersActivity.class);
+            startActivity(intent);
+        });
+
+        btnBack.setOnClickListener(v->{
+            Intent intent = new Intent(iPlayerOverviewActivity.this, StatsStarsActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
 
         // In terms of API, this is easier than the listview because you wont be using any loops

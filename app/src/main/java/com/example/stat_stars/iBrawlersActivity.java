@@ -1,5 +1,6 @@
 package com.example.stat_stars;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -51,6 +52,12 @@ public class iBrawlersActivity extends AppCompatActivity {
         brawlers.add(new Brawler("Dynamike","300"));
         BrawlerAdapter adapter = new BrawlerAdapter(brawlers,getApplicationContext());
         lvBrawlersList.setAdapter(adapter);
+
+        btnBack3.setOnClickListener(v->{
+            Intent intent = new Intent(iBrawlersActivity.this, iPlayerOverviewActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         // This will also be heavy API / image loading so whoever does this be ready for war
     }

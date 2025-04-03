@@ -35,6 +35,11 @@ public class StatsStarsActivity extends AppCompatActivity {
         btnGo = findViewById(R.id.btnGo);
         btnBrawlers = findViewById(R.id.btnBrawlers);
 
+        btnGo.setOnClickListener(v->{
+            Intent intent = new Intent(StatsStarsActivity.this, iPlayerOverviewActivity.class);
+            startActivity(intent);
+        });
+
 
 
 

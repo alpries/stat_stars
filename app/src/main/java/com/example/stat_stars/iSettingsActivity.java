@@ -29,6 +29,10 @@ public class iSettingsActivity extends AppCompatActivity {
         // Drawables
         btnBack2 = findViewById(R.id.btnBack2);
 
+        btnBack2.setOnClickListener(v -> {
+            finish();
+        });
+
 
         // I Don't know what we want to include on the settings page but we need 4 activities so try to come up with something
         // Also for the actual settings icon, use a SetOnClickListener to make this work!
