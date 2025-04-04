@@ -16,6 +16,7 @@ public class StatsStarsActivity extends AppCompatActivity {
 
     // VARIABLES + EXPLANATIONS
     EditText etPlayerTag; // user Player Tag (Example Tag: #UPOQU9U2) Input
+    String playerTag; // this needs to hold the player tag that is typed in order to send it to the next activity. intent share is already set up. (WRONA)
     Button btnGo; // Go button for once the user has entered player tag
     Button btnBrawlers; // Button that takes them to the brawl stars app (using intents!)
 
@@ -35,10 +36,15 @@ public class StatsStarsActivity extends AppCompatActivity {
         btnGo = findViewById(R.id.btnGo);
         btnBrawlers = findViewById(R.id.btnBrawlers);
 
+
+
         btnGo.setOnClickListener(v->{
+            String playerTag = etPlayerTag.getText().toString().trim(); // Get the text and trim whitespace
+            System.out.println("Player Tag: " + playerTag);
             Intent intent = new Intent(StatsStarsActivity.this, iPlayerOverviewActivity.class);
+            intent.putExtra("playerTag", playerTag);
             startActivity(intent);
-        });
+        }); //this NEEDS to pass the player's username to the next page!!!!
 
 
 
