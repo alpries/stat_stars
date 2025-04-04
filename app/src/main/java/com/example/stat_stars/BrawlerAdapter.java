@@ -45,7 +45,7 @@ public class BrawlerAdapter extends BaseAdapter {
         brawlerTv.setText(brawler.brawlerName);
         trophiesTv.setText(brawler.trophies);
         String name = brawler.brawlerName.toLowerCase();
-        name = name.replace("&","").replace(" ","_").replace("8",""); // Used because images cannot be saved with spaces,symbols, and numbers
+        name = name.replace("&","").replace(" ","_").replace("8","").replace("-","_").replace(".",""); // Used because images cannot be saved with spaces,symbols, and numbers
         int imageId = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
         brawlerIv.setImageResource(imageId);
         return view;
