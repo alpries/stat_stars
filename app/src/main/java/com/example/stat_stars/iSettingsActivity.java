@@ -14,6 +14,7 @@ public class iSettingsActivity extends AppCompatActivity {
 
     // VARIABLES + EXPLANATIONS
     Button btnBack2; // Takes you back to the PREVIOUS activity user was just on
+    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class iSettingsActivity extends AppCompatActivity {
 
         // Drawables
         btnBack2 = findViewById(R.id.btnBack2);
+        btnLogout = findViewById(R.id.btnLogout);
 
 
         // I Don't know what we want to include on the settings page but we need 4 activities so try to come up with something
