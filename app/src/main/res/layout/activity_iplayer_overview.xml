@@ -154,7 +154,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTrophiesAllTime" />
 
     <TextView
-        android:id="@+id/tvRankHighest"
+        android:id="@+id/tvRankXp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -164,7 +164,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="highest rank"
+        android:text="xp Total"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
@@ -183,7 +183,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="current rank"
+        android:text="level"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
@@ -209,7 +209,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/tvTrophiesSeason"
+        android:id="@+id/tvTrophiesCurrent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -219,7 +219,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="season high"
+        android:text="Current Standing"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
@@ -237,12 +237,12 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="alltime high"
+        android:text="alltime trophies"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/tvTrophiesSeason" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTrophiesCurrent" />
 
     <TextView
         android:id="@+id/textView6"
