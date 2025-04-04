@@ -36,7 +36,11 @@ public class StatsStarsActivity extends AppCompatActivity {
         btnGo = findViewById(R.id.btnGo);
         btnBrawlers = findViewById(R.id.btnBrawlers);
 
+
+
         btnGo.setOnClickListener(v->{
+            String playerTag = etPlayerTag.getText().toString().trim(); // Get the text and trim whitespace
+            System.out.println("Player Tag: " + playerTag);
             Intent intent = new Intent(StatsStarsActivity.this, iPlayerOverviewActivity.class);
             intent.putExtra("playerTag", playerTag);
             startActivity(intent);

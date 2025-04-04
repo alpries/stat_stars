@@ -68,7 +68,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
 
         Intent intent = getIntent();
-        String playerTag = intent.getStringExtra("player_tag");
+        String playerTag = intent.getStringExtra("playerTag");
 
         queue = Volley.newRequestQueue(this);
 
@@ -93,7 +93,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
     private void fetchPlayerData(String playerTag) {
         String apiURL = "https://api.brawlstars.com/v1/players/" + playerTag;
-
+        System.out.println("Player Tag: " + playerTag);
         // Create the request
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -116,6 +116,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
                             // Setting the extracted data to the TextViews ENSURE ALL OF THESE MATCH AND WORK PROPERLY PLEASE
                             tvPlayerName.setText(playerName);
+                            System.out.println("working example: " + playerName);
                             tvTrophies.setText(String.valueOf(trophies));
                             tvRankCurrent.setText(String.valueOf(rankCurrent));
                             tvRankXp.setText(String.valueOf(highestTrophies));
