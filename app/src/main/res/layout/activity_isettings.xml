@@ -75,7 +75,7 @@
     <ListView
         android:layout_width="422dp"
         android:layout_height="488dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
