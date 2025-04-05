@@ -1,6 +1,6 @@
 // TO-DO:
 //    Alfred: Activities intents so all activities can lead to one another + 'play brawl stars' button functionality
-//    Chris W: API for player overview + make the x button and settings icon functionality
+//    -(Chris W: API for player overview)- + -(make the x button and settings icon functionality)- 2/2
 //    Chris R: API and what not for brawlers list and list manipulation through the spinner
 //    Andrew: Settings functionality and work, sign out, compare, whatever else
 //    ALL: Logo + Well Documented Code
