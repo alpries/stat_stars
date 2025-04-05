@@ -101,6 +101,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
     }
 
     private void fetchPlayerData(String playerTag) {
+        //the URL used to access the API for information, adding player tag to the end to get a specific player's info.
         String apiURL = "https://api.brawlstars.com/v1/players/" + playerTag;
         System.out.println("Player Tag: " + playerTag);
         // Create the request
@@ -116,12 +117,12 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                             String playerName = response.getString("name");
                             int trophies = response.getInt("trophies");
                             int expPoints = response.getInt("expPoints");
-                            int rankCurrent = response.getInt("expLevel"); // Assuming expLevel is used for current rank
+                            int rankCurrent = response.getInt("expLevel");
                             int highestTrophies = response.getInt("highestTrophies");
                             int wins3v3 = response.getInt("3vs3Victories");
                             int winsSolo = response.getInt("soloVictories");
                             int winsDuo = response.getInt("duoVictories");
-                            String clubName = response.getJSONObject("club").getString("name"); // Assuming club has a name field
+                            String clubName = response.getJSONObject("club").getString("name");
 
                             // Setting the extracted data to the TextViews ENSURE ALL OF THESE MATCH AND WORK PROPERLY PLEASE
                             tvPlayerName.setText(playerName);
@@ -142,8 +143,8 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                 },
                 new Response.ErrorListener() {
                     @Override
+                    //error handling here
                     public void onErrorResponse(VolleyError error) {
-                        // Handle error
                         System.out.println("error here! JSON issue");
                     }
                 }) {
