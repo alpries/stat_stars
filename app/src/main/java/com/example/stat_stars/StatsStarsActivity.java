@@ -1,9 +1,12 @@
 package com.example.stat_stars;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +39,24 @@ public class StatsStarsActivity extends AppCompatActivity {
         btnGo = findViewById(R.id.btnGo);
         btnBrawlers = findViewById(R.id.btnBrawlers);
 
+//sends user to brawlstars or its google play page (ADDITIONAL FEATURE) also, see app icon.
+        btnBrawlers.setOnClickListener(v->{
+            try {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.supercell.brawlstars");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);
+                } else {
+                    //opens the google playstore so user can get brawlstars
+                    Intent playstoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.supercell.brawlstars"));
+                    startActivity(playstoreIntent);
+                }
+            } catch (ActivityNotFoundException e)
+            {
+                Toast.makeText(this, "Playstore cannot be accessed...", Toast.LENGTH_LONG).show();
+                //lets the user know that brawlstars is 1) not on phone and 2) playstore cant be used through this app
+            }
 
+        });
 
         btnGo.setOnClickListener(v->{
             String playerTag = etPlayerTag.getText().toString().trim(); // Get the text and trim whitespace
