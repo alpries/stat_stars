@@ -51,6 +51,12 @@ public class iBrawlersActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+
+
+   
+
         intent = getIntent(); // Grab intent from the previous activity
         id = intent.getStringExtra("playerTag"); // Take the player tag from the preview page
         System.out.println(id);
@@ -59,10 +65,13 @@ public class iBrawlersActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this); // Initialize the queue
         String formattedTag = id.replace("#", "%23"); // Format the id for the api
         url = "https://api.brawlstars.com/v1/players/" + formattedTag; // create the link
+
         // Drawables
         btnBack3 = findViewById(R.id.btnBack3); // These connect the things in the api to the java objects
         ivSettings2 = findViewById(R.id.ivSettings2);
         lvBrawlersList = findViewById(R.id.lvBrawlersList);
+
+
         getBrawlers(); // calls the function which sets up the listview
         lvBrawlersList.setAdapter(adapter); // Add the adapter to the list view
         btnBack3.setOnClickListener(v -> { // Set the back button to first activity
@@ -70,6 +79,13 @@ public class iBrawlersActivity extends AppCompatActivity {
             startActivity(backIntent);
             finish();
         });
+      
+       ivSettings2.setOnClickListener(v->{
+            Intent settingsintent = new Intent(iBrawlersActivity.this, iSettingsActivity.class);
+            startActivity(settingsintent);
+            finish();
+        });
+
     }
 
     public void getBrawlers() { // This function makes a JSON request and saves it into an arraylist

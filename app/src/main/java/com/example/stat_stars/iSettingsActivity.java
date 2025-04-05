@@ -42,8 +42,14 @@ public class iSettingsActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout); // Button to simulate logging out
         recentUserList = findViewById(R.id.recentuser); // Displays a list of recent users (currently dummy data)
 
-        // BACK BUTTON FUNCTIONALITY - closes the activity and returns to previous screen
-        btnBack2.setOnClickListener(v -> finish());
+        btnBack2.setOnClickListener(v ->
+                {
+                Intent backintent = new Intent(iSettingsActivity.this, iPlayerOverviewActivity.class);
+                startActivity(backintent);
+                finish();
+                });
+
+     
 
         // LOGOUT BUTTON FUNCTIONALITY - goes back to the StatsStarsActivity
         btnLogout.setOnClickListener(v -> {
