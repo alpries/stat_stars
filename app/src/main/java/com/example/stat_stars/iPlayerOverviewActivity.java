@@ -34,13 +34,13 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
     TextView tvPlayerName; // API tv for the players in-game username
 
-    TextView tvTrophies; // API tv for trophy statistics
+    TextView tvTrophies, tvHighestTrophies; // API tv for trophy statistics
     TextView tvRankCurrent, tvRankXp; // API tv for ranked statistics
     TextView tvWins3v3, tvWinsSolo, tvWinsDuo; // API tv for victories statistics
     TextView tvClubName; // API tv for club name statistic
     Button btnToBrawlers; // Button to go to the brawlers statistics activity
-    RequestQueue queue;
-    String playerTag;
+    RequestQueue queue; // for API
+    String playerTag; // to hold the playerTag from the start activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +55,9 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
         // Drawables
         tvPlayerName = findViewById(R.id.tvPlayerName);
-
-
-        tvTrophies = findViewById(R.id.tvTrophiesAllTime);
+        ivSettings = findViewById(R.id.ivSettings);
+        tvHighestTrophies = findViewById(R.id.tvHighestTrophies);
+        tvTrophies = findViewById(R.id.tvTrophies);
         tvRankCurrent = findViewById(R.id.tvRankCurrent);
         tvRankXp = findViewById(R.id.tvRankXp);
         tvWins3v3 = findViewById(R.id.tvWins3v3);
@@ -66,23 +66,32 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
         tvClubName = findViewById(R.id.tvClubName);
         btnToBrawlers = findViewById(R.id.btnToBrawlers);
         btnBack = findViewById(R.id.btnBack);
-
+        //getting the playerTag given in the starting activity
         Intent intent = getIntent();
-        String playerTag = intent.getStringExtra("playerTag");
-
+        playerTag = intent.getStringExtra("playerTag");
+        //volley for API request
         queue = Volley.newRequestQueue(this);
-
+        //function to get info from API
         fetchPlayerData(playerTag);
 
+        //intents to take user to other pages (back to brawlers activity)
         btnToBrawlers.setOnClickListener(v -> {
             Intent brawlerIntent = new Intent(iPlayerOverviewActivity.this, iBrawlersActivity.class);
             startActivity(brawlerIntent);
+            finish();
         });
-
+        //back to starting activity
         btnBack.setOnClickListener(v -> {
             Intent backIntent = new Intent(iPlayerOverviewActivity.this, StatsStarsActivity.class);
             startActivity(backIntent);
             finish();
+        });
+        // to setting activity
+        ivSettings.setOnClickListener(v -> {
+            Intent settingIntent = new Intent(iPlayerOverviewActivity.this, iSettingsActivity.class);
+            startActivity(settingIntent);
+            finish();
+
         });
 
 
@@ -104,9 +113,9 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Extracting data from the JSON response
-                            String playerTag = response.getString("tag");
                             String playerName = response.getString("name");
                             int trophies = response.getInt("trophies");
+                            int expPoints = response.getInt("expPoints");
                             int rankCurrent = response.getInt("expLevel"); // Assuming expLevel is used for current rank
                             int highestTrophies = response.getInt("highestTrophies");
                             int wins3v3 = response.getInt("3vs3Victories");
@@ -118,8 +127,9 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                             tvPlayerName.setText(playerName);
                             System.out.println("working example: " + playerName);
                             tvTrophies.setText(String.valueOf(trophies));
+                            tvHighestTrophies.setText(String.valueOf(highestTrophies));
                             tvRankCurrent.setText(String.valueOf(rankCurrent));
-                            tvRankXp.setText(String.valueOf(highestTrophies));
+                            tvRankXp.setText(String.valueOf(expPoints));
                             tvWins3v3.setText(String.valueOf(wins3v3));
                             tvWinsSolo.setText(String.valueOf(winsSolo));
                             tvWinsDuo.setText(String.valueOf(winsDuo));
@@ -134,8 +144,10 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Handle error
+                        System.out.println("error here! JSON issue");
                     }
                 }) {
+            //have to pass the API key to the API in order to use it for data. this is the way it expected us to do it...
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
