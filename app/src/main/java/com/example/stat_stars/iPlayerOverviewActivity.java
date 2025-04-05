@@ -76,6 +76,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
         btnToBrawlers.setOnClickListener(v -> {
             Intent brawlerIntent = new Intent(iPlayerOverviewActivity.this, iBrawlersActivity.class);
+            intent.putExtra("playerTag", playerTag);
             startActivity(brawlerIntent);
         });
 
@@ -92,7 +93,8 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
     }
 
     private void fetchPlayerData(String playerTag) {
-        String apiURL = "https://api.brawlstars.com/v1/players/" + playerTag;
+        String formattedTag = playerTag.replace("#", "%23");
+        String apiURL = "https://api.brawlstars.com/v1/players/" + formattedTag;
         System.out.println("Player Tag: " + playerTag);
         // Create the request
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -124,6 +126,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                             tvWinsSolo.setText(String.valueOf(winsSolo));
                             tvWinsDuo.setText(String.valueOf(winsDuo));
                             tvClubName.setText(clubName);
+                            System.out.println("Yolo");
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -133,13 +136,14 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle error
+                        System.out.println("error: "+ error.toString());
                     }
                 }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijc0ZGVlYWE3LTY4MzAtNDY0Mi04ZGRmLTlhYzc4ZjA1OTc0ZSIsImlhdCI6MTc0MzcyNTg2Mywic3ViIjoiZGV2ZWxvcGVyLzY4M2FlZDk0LTU5NzYtOGVhZS02NTQ1LTdkNTA0ZGQ1MmEyZCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMjU1LjI1NS4yNTUuMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.duAun0R8RVb4ne2J1qcrJHUWMNMpgC2UM3JDgEUOZQXO0zw0PPUqyP8LE7DdbEyeQC5OXZB55kbRv4_dfuZsAw"); // Add the API key here
+                headers.put("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijk4NTAyOWFlLWRiMmEtNDhlZC1hY2M5LWViM2UyYzk3ZjVjNCIsImlhdCI6MTc0Mzc3OTM1Niwic3ViIjoiZGV2ZWxvcGVyLzA1ZDAzNDg3LWUyYWUtOWU4OS1iZWI5LTJjYTQ2NmVhZjhhMiIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTUxLjE4MS4zNi45OSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.4V2jEkb1Fw_AEu7kMyrIpaOAlgHfwJ5RJ5MrWsbJizxb_hswK5LLg7Ny_Lyio7HNiKBwmdQBKQ-Y8xsr0W2xMQ"); // Add the API key here
+                headers.put("Accept", "application/json");
                 return headers;
             }
         };
