@@ -15,45 +15,43 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+// Activity for the Settings Page (iSettingsActivity)
 public class iSettingsActivity extends AppCompatActivity {
 
-    Button btnBack2;
-    Button btnLogout;
-    ListView recentUserList;
+    // VARIABLES + EXPLANATIONS
+    Button btnBack2; // Back button to return to the previous screen
+    Button btnLogout; // Logout button that sends the user back to StatsStarsActivity (acts as logout)
+    ListView recentUserList; // ListView that displays a list of recently searched users (temporary dummy data for now)
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_isettings);
+        EdgeToEdge.enable(this); // Enables edge-to-edge display
+        setContentView(R.layout.activity_isettings); // Connects this class to its XML layout
 
+        // Makes sure the view uses proper padding to avoid overlap with system UI (status/nav bars)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btnBack2 = findViewById(R.id.btnBack2);
-        btnLogout = findViewById(R.id.btnLogout);
-        recentUserList = findViewById(R.id.recentuser);
+        // CONNECT UI ELEMENTS TO VARIABLES
+        btnBack2 = findViewById(R.id.btnBack2); // Go back to the previous activity
+        btnLogout = findViewById(R.id.btnLogout); // Button to simulate logging out
+        recentUserList = findViewById(R.id.recentuser); // Displays a list of recent users (currently dummy data)
 
+        // BACK BUTTON FUNCTIONALITY - closes the activity and returns to previous screen
         btnBack2.setOnClickListener(v -> finish());
 
+        // LOGOUT BUTTON FUNCTIONALITY - goes back to the StatsStarsActivity
         btnLogout.setOnClickListener(v -> {
             Intent intent = new Intent(iSettingsActivity.this, StatsStarsActivity.class);
+            // These flags make sure the app clears the backstack and restarts from the main screen
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            finish();
+            finish(); // finish current activity so user can’t come back using back button
         });
-
-        // Dummy data for testing
-        List<Users> users = new ArrayList<>();
-        users.add(new Users("User1", "12345"));
-        users.add(new Users("User2", "67890"));
-
-        // Set the adapter to the ListView
-        UsersAdapters adapter = new UsersAdapters(this, users);
-        recentUserList.setAdapter((ListAdapter) adapter);
     }
 }
