@@ -151,7 +151,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/tvTrophiesAllTime" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTrophies" />
 
     <TextView
         android:id="@+id/tvRankXp"
@@ -209,7 +209,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/tvTrophiesCurrent"
+        android:id="@+id/tvHighestTrophies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -219,7 +219,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="Current Standing"
+        android:text="Highest Trophies"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
@@ -227,7 +227,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/tvTrophiesAllTime"
+        android:id="@+id/tvTrophies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -237,19 +237,19 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="15"
-        android:text="alltime trophies"
+        android:text="trophies"
         android:textColor="#18FFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/tvTrophiesCurrent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHighestTrophies" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/alfa_slab_one"
         android:outlineProvider="none"
         android:shadowColor="#050505"
@@ -260,44 +260,6 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivFavoriteBrawler" />
-
-    <TextView
-        android:id="@+id/tvFavoriteBrawler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:outlineProvider="none"
-        android:shadowColor="#050505"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="15"
-        android:text="brawler name"
-        android:textColor="#18FFFF"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:outlineProvider="none"
-        android:shadowColor="#050505"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="15"
-        android:text="FAVORITE BRAWLER"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvPlayerName"
-        app:layout_constraintStart_toEndOf="@+id/ivFavoriteBrawler"
         app:layout_constraintTop_toBottomOf="@+id/tvPlayerName" />
 
     <TextView
@@ -317,16 +279,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivFavoriteBrawler"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="200dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvPlayerName"
-        app:layout_constraintStart_toStartOf="@+id/tvPlayerName"
-        app:layout_constraintTop_toBottomOf="@+id/tvPlayerName"
-        app:srcCompat="@drawable/example_brawler" />
 
     <ImageView
         android:id="@+id/ivSettings"
