@@ -41,6 +41,7 @@ public class iSettingsActivity extends AppCompatActivity {
         btnBack2.setOnClickListener(v ->
                 {
                 Intent backintent = new Intent(iSettingsActivity.this, iPlayerOverviewActivity.class);
+                startActivity(backintent);
                 finish();
                 });
 
