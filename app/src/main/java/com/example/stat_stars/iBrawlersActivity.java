@@ -51,6 +51,9 @@ public class iBrawlersActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+
         brawlers1 = new ArrayList<>();
         adapter = new BrawlerAdapter(brawlers1,getApplicationContext());
         queue = Volley.newRequestQueue(this);
@@ -63,6 +66,26 @@ public class iBrawlersActivity extends AppCompatActivity {
         lvBrawlersList = findViewById(R.id.lvBrawlersList);
         getBrawlers();
         lvBrawlersList.setAdapter(adapter);
+
+
+        btnBack3.setOnClickListener(v->{
+            Intent backintent = new Intent(iBrawlersActivity.this, iPlayerOverviewActivity.class);
+            startActivity(backintent);
+            finish();
+        });
+
+        ivSettings2.setOnClickListener(v->{
+            Intent settingsintent = new Intent(iBrawlersActivity.this, iSettingsActivity.class);
+            startActivity(settingsintent);
+            finish();
+        });
+
+//        btnGo.setOnClickListener(v->{
+//            String playerTag = etPlayerTag.getText().toString().trim(); // Get the text and trim whitespace
+//            System.out.println("Player Tag: " + playerTag);
+//            Intent intent = new Intent(StatsStarsActivity.this, iPlayerOverviewActivity.class);
+//            intent.putExtra("playerTag", playerTag);
+//            startActivity(intent);
     }
 
     public void getBrawlers() {

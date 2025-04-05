@@ -38,7 +38,11 @@ public class iSettingsActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         recentUserList = findViewById(R.id.recentuser);
 
-        btnBack2.setOnClickListener(v -> finish());
+        btnBack2.setOnClickListener(v ->
+                {
+                Intent backintent = new Intent(iSettingsActivity.this, iPlayerOverviewActivity.class);
+                finish();
+                });
 
         btnLogout.setOnClickListener(v -> {
             Intent intent = new Intent(iSettingsActivity.this, StatsStarsActivity.class);
