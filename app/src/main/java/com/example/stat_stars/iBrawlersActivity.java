@@ -34,7 +34,6 @@ public class iBrawlersActivity extends AppCompatActivity {
     Button btnBack3; // Button to take user back to Player Overview activity
     ImageView ivSettings2; // ImageView to go to settings activity
     ListView lvBrawlersList;
-    Intent intent;
     String id;
     RequestQueue queue;
     String url;
@@ -51,10 +50,12 @@ public class iBrawlersActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        id = "";
+        Intent intent = getIntent();
+        id = intent.getStringExtra("playerTag");
         brawlers1 = new ArrayList<>();
         adapter = new BrawlerAdapter(brawlers1,getApplicationContext());
         queue = Volley.newRequestQueue(this);
-        id = "#8YVVRLLQJ";
         String formattedTag = id.replace("#", "%23");
         url = "https://api.brawlstars.com/v1/players/" + formattedTag;
         // Drawables
