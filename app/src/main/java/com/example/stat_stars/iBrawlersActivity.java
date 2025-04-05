@@ -80,11 +80,11 @@ public class iBrawlersActivity extends AppCompatActivity {
             finish();
         });
       
-       ivSettings2.setOnClickListener(v->{
-            Intent settingsintent = new Intent(iBrawlersActivity.this, iSettingsActivity.class);
-            startActivity(settingsintent);
-            finish();
-        });
+//       ivSettings2.setOnClickListener(v->{
+//            Intent settingsintent = new Intent(iBrawlersActivity.this, iSettingsActivity.class);
+//            startActivity(settingsintent);
+//            finish();
+//        });
 
     }
 

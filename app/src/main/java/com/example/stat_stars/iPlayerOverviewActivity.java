@@ -86,12 +86,12 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
             finish();
         });
 
-        ivSettings.setOnClickListener(v->{
-            Intent settingIntent = new Intent(iPlayerOverviewActivity.this, iSettingsActivity.class );
-            startActivity(settingIntent);
-            finish();
-
-        });
+//        ivSettings.setOnClickListener(v->{
+//            Intent settingIntent = new Intent(iPlayerOverviewActivity.this, iSettingsActivity.class );
+//            startActivity(settingIntent);
+//            finish();
+//
+//        });
 
 
         // In terms of API, this is easier than the listview because you wont be using any loops
