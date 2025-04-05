@@ -65,6 +65,11 @@ public class iBrawlersActivity extends AppCompatActivity {
         lvBrawlersList = findViewById(R.id.lvBrawlersList);
         getBrawlers();
         lvBrawlersList.setAdapter(adapter);
+        btnBack3.setOnClickListener(v -> {
+            Intent backIntent = new Intent(iBrawlersActivity.this, StatsStarsActivity.class);
+            startActivity(backIntent);
+            finish();
+        });
     }
 
     public void getBrawlers() {
