@@ -57,7 +57,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
         tvPlayerName = findViewById(R.id.tvPlayerName);
 
 
-        tvTrophies = findViewById(R.id.tvTrophiesAllTime);
+        tvTrophies = findViewById(R.id.tvHighestTrophies);
         tvRankCurrent = findViewById(R.id.tvRankCurrent);
         tvRankXp = findViewById(R.id.tvRankXp);
         tvWins3v3 = findViewById(R.id.tvWins3v3);
@@ -76,7 +76,7 @@ public class iPlayerOverviewActivity extends AppCompatActivity {
 
         btnToBrawlers.setOnClickListener(v -> {
             Intent brawlerIntent = new Intent(iPlayerOverviewActivity.this, iBrawlersActivity.class);
-            intent.putExtra("playerTag", playerTag);
+            brawlerIntent.putExtra("playerTag", playerTag);
             startActivity(brawlerIntent);
         });
 

@@ -39,6 +39,7 @@ public class iBrawlersActivity extends AppCompatActivity {
     String url;
     ArrayList<Brawler> brawlers1;
     BrawlerAdapter adapter;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +51,9 @@ public class iBrawlersActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        id = "";
-        Intent intent = getIntent();
+        intent = getIntent();
         id = intent.getStringExtra("playerTag");
+        System.out.println(id);
         brawlers1 = new ArrayList<>();
         adapter = new BrawlerAdapter(brawlers1,getApplicationContext());
         queue = Volley.newRequestQueue(this);
